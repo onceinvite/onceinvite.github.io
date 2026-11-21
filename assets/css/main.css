@@ -12,6 +12,7 @@
   --olive-dark: #6f5d37;
   --nur: #9e1b32;        /* նուռ՝ միայն շեշտերի համար */
   --nur-dark: #6e1424;
+  --nur-bright: #c0283f;  /* վառ նուռ՝ կոճակներ և ձեռագիր գծեր */
   --ink: #2b2420;        /* տեքստ */
   --muted: #6f655c;
   --line: #ddd2c2;
@@ -50,26 +51,67 @@ h1, h2, h3, p { margin: 0; }
 }
 
 /* ---------- Կոճակներ ---------- */
+/* Հիմնական կոճակ՝ կլոր, նռնագույն */
 .btn {
-  display: inline-block;
-  padding: 13px 30px;
-  border: 1px solid var(--ink);
-  background: var(--ink);
-  color: var(--cream);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 28px;
+  border: 1px solid var(--nur-bright);
+  border-radius: 999px;
+  background: var(--nur-bright);
+  color: #fff;
   font-size: 1rem;
   font-weight: 400;
   text-decoration: none;
   cursor: pointer;
-  transition: background .25s, color .25s, border-color .25s;
+  transition: background .25s, color .25s, border-color .25s, transform .25s;
 }
-.btn:hover, .btn:focus-visible { background: var(--nur); border-color: var(--nur); color: #fff; }
-.btn--outline { background: transparent; color: var(--ink); }
+.btn:hover, .btn:focus-visible { background: var(--nur-dark); border-color: var(--nur-dark); transform: translateY(-1px); }
+
+/* Սլաք՝ «→», շարժվում է hover-ի ժամանակ */
+.btn--arrow::after { content: "→"; font-family: Georgia, serif; text-transform: none; transition: transform .25s; }
+.btn--arrow:hover::after { transform: translateX(4px); }
+
+/* Երկրորդական կոճակ՝ առանց ֆոնի, կլոր «play» նշանով */
+.btn--play { padding-left: 6px; background: transparent; border-color: transparent; color: var(--ink); }
+.btn--play:hover, .btn--play:focus-visible { background: transparent; border-color: transparent; color: var(--nur-bright); }
+.btn__circle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.btn__circle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 54%;
+  transform: translate(-50%, -50%);
+  border-style: solid;
+  border-width: 6px 0 6px 10px;
+  border-color: transparent transparent transparent currentColor;
+}
+
+.btn--outline { background: transparent; border-color: var(--ink); color: var(--ink); }
 .btn--outline:hover, .btn--outline:focus-visible { background: var(--ink); border-color: var(--ink); color: var(--cream); }
-.btn--small { padding: 8px 18px; font-size: .9rem; }
+.btn--small { padding: 7px 18px; font-size: .9rem; }
 .btn--light { background: var(--cream); border-color: var(--cream); color: var(--nur-dark); }
 .btn--light:hover, .btn--light:focus-visible { background: #fff; border-color: #fff; color: var(--nur-dark); }
 .btn--ghost { background: transparent; border-color: rgba(247, 242, 234, .6); color: var(--cream); }
 .btn--ghost:hover, .btn--ghost:focus-visible { background: var(--cream); border-color: var(--cream); color: var(--nur-dark); }
+
+/* ---------- Ձեռագիր նռնագույն գիծ բառի տակ ---------- */
+/* Օգտագործեք քիչ՝ մեկ-երկու կարևոր բառի համար. <span class="scribble">բառ</span> */
+.scribble {
+  padding-bottom: .14em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 20' preserveAspectRatio='none'%3E%3Cpath d='M4 14 C 60 6, 120 4, 180 8 S 270 13, 296 7' fill='none' stroke='%23c0283f' stroke-width='4.5' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat left bottom / 100% .32em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
 
 /* ---------- Վերևի ժապավեն ---------- */
 .announce {
@@ -147,8 +189,9 @@ h1, h2, h3, p { margin: 0; }
   margin-bottom: 22px;
 }
 .hero__title em { font-style: italic; color: var(--nur); }
+.section__title .scribble { font-style: italic; }
 .hero__text { max-width: 470px; color: var(--muted); font-size: 1.05rem; margin-bottom: 32px; }
-.hero__buttons { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero__buttons { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; }
 
 /* Կոլաժ */
 .collage { position: relative; height: 600px; }
