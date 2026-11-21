@@ -1,32 +1,34 @@
 /* =========================================================
    Once — գլխավոր էջի ոճեր
-   Բրենդի գույներն ու տառատեսակները փոխեք :root-ում
+   Գույներն ու տառատեսակները փոխեք :root-ում
    ========================================================= */
 
 :root {
   /* Once բրենդի գույներ */
-  --ink: #2b211d;        /* հիմնական տեքստ (տաք մուգ շագանակագույն) */
-  --muted: #74675f;      /* երկրորդական տեքստ */
-  --paper: #fbf6f0;      /* ֆոն (փղոսկր) */
-  --tint: #f3e6dd;       /* բաց վարդագույն-բեժ բաժիններ */
-  --accent: #b4614a;     /* Once-ի գույնը (տաք նռնագույն / terracotta) */
-  --accent-dark: #93472f;
-  --line: #e6d8cc;
-  --white: #fffdfa;
+  --cream: #f7f2ea;      /* հիմնական ֆոն */
+  --paper: #fdfaf5;      /* քարտերի ֆոն */
+  --sand: #ede4d6;       /* բաց բաժիններ */
+  --olive: #8b7547;      /* ձիթաոսկեգույն՝ վերնամաս, ներքնամաս */
+  --olive-dark: #6f5d37;
+  --nur: #9e1b32;        /* նուռ՝ միայն շեշտերի համար */
+  --nur-dark: #6e1424;
+  --ink: #2b2420;        /* տեքստ */
+  --muted: #6f655c;
+  --line: #ddd2c2;
 
   /* Տառատեսակներ */
-  --font-main: "Noto Serif Armenian", Georgia, serif;   /* հայերեն տեքստ */
-  --font-brand: "Cormorant Garamond", Georgia, serif;   /* Once անունը, թվեր */
+  --font-display: "Playfair Display", "Noto Serif Armenian", Georgia, serif; /* մեծ վերնագրեր */
+  --font-main: "Noto Serif Armenian", Georgia, serif;                        /* տեքստ */
+  --font-ui: "Noto Sans Armenian", "Arial Narrow", sans-serif;               /* մենյու, կոճակներ */
 
-  --radius: 18px;
-  --shadow: 0 18px 40px -20px rgba(43, 33, 29, .35);
+  --shadow: 0 22px 40px -22px rgba(43, 36, 32, .45);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 body {
   margin: 0;
-  background: var(--paper);
+  background: var(--cream);
   color: var(--ink);
   font-family: var(--font-main);
   font-weight: 300;
@@ -37,299 +39,316 @@ body {
 h1, h2, h3, p { margin: 0; }
 [hidden] { display: none !important; }
 
-.wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+.wrap { max-width: 1160px; margin: 0 auto; padding: 0 16px; }
+
+/* Նեղ, մեծատառ գրություն (մենյու, կոճակներ, փոքր վերնագրեր) */
+.announce, .nav a, .btn, .filter, .eyebrow, .card__code, .card__badge {
+  font-family: var(--font-ui);
+  font-stretch: 75%;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
 
 /* ---------- Կոճակներ ---------- */
 .btn {
   display: inline-block;
-  padding: 12px 28px;
+  padding: 13px 30px;
   border: 1px solid var(--ink);
-  border-radius: 999px;
   background: var(--ink);
-  color: var(--white);
-  font-family: inherit;
-  font-size: .95rem;
+  color: var(--cream);
+  font-size: 1rem;
   font-weight: 400;
   text-decoration: none;
   cursor: pointer;
-  transition: background .25s, color .25s, border-color .25s, transform .25s;
+  transition: background .25s, color .25s, border-color .25s;
 }
-.btn:hover, .btn:focus-visible { background: var(--accent); border-color: var(--accent); transform: translateY(-1px); }
+.btn:hover, .btn:focus-visible { background: var(--nur); border-color: var(--nur); color: #fff; }
 .btn--outline { background: transparent; color: var(--ink); }
-.btn--outline:hover, .btn--outline:focus-visible { background: var(--ink); border-color: var(--ink); color: var(--white); }
-.btn--small { padding: 8px 20px; font-size: .88rem; }
-.btn--light { background: var(--white); border-color: var(--white); color: var(--ink); }
-.btn--light:hover, .btn--light:focus-visible { background: var(--accent); border-color: var(--accent); color: var(--white); }
-.btn--ghost { background: transparent; border-color: rgba(255, 253, 250, .6); color: var(--white); }
-.btn--ghost:hover, .btn--ghost:focus-visible { background: var(--white); border-color: var(--white); color: var(--ink); }
+.btn--outline:hover, .btn--outline:focus-visible { background: var(--ink); border-color: var(--ink); color: var(--cream); }
+.btn--small { padding: 8px 18px; font-size: .9rem; }
+.btn--light { background: var(--cream); border-color: var(--cream); color: var(--nur-dark); }
+.btn--light:hover, .btn--light:focus-visible { background: #fff; border-color: #fff; color: var(--nur-dark); }
+.btn--ghost { background: transparent; border-color: rgba(247, 242, 234, .6); color: var(--cream); }
+.btn--ghost:hover, .btn--ghost:focus-visible { background: var(--cream); border-color: var(--cream); color: var(--nur-dark); }
 
-/* ---------- Լոգո ---------- */
-.logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--ink);
-  text-decoration: none;
+/* ---------- Վերևի ժապավեն ---------- */
+.announce {
+  padding: 9px 16px;
+  background: var(--olive-dark);
+  color: var(--cream);
+  text-align: center;
+  font-size: .85rem;
 }
-.logo__mark { width: 30px; height: 30px; }
-.logo__dot { fill: var(--accent); }
-.logo__word {
-  font-family: var(--font-brand);
-  font-style: italic;
-  font-weight: 500;
-  font-size: 1.85rem;
-  line-height: 1;
-  letter-spacing: .5px;
-}
-.logo--small .logo__mark { width: 26px; height: 26px; }
-.logo--small .logo__word { font-size: 1.6rem; }
 
 /* ---------- Վերնամաս ---------- */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(251, 246, 240, .9);
-  border-bottom: 1px solid var(--line);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  background: var(--olive);
+  color: var(--cream);
 }
 .site-header__inner {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  min-height: 68px;
+  gap: 4px;
+  padding-top: 14px;
+  padding-bottom: 10px;
 }
-.nav { display: flex; gap: 26px; }
-.nav a { color: var(--ink); text-decoration: none; font-size: .92rem; }
-.nav a:hover { color: var(--accent); }
 
-/* ---------- Վերնագրեր ---------- */
+/* Լոգո */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: inherit;
+  text-decoration: none;
+}
+.logo__word {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 500;
+  font-size: 2.6rem;
+  line-height: 1;
+  letter-spacing: -.5px;
+}
+.logo__mark { width: 26px; height: 26px; margin-top: -14px; }
+.logo__fruit { fill: var(--nur); }
+.logo__seed { fill: #f2c9c4; }
+.logo--small .logo__word { font-size: 2rem; }
+
+.nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 30px; }
+.nav a { color: var(--cream); text-decoration: none; font-size: .98rem; opacity: .92; }
+.nav a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 6px; }
+.nav__accent { color: #ffd3cc !important; font-weight: 500; } /* «Պատվիրել»՝ նռան բաց երանգով */
+
+/* ---------- Փոքր վերնագիր ---------- */
 .eyebrow {
-  color: var(--accent);
-  font-size: .8rem;
-  font-weight: 400;
-  letter-spacing: 3px;
-  text-transform: uppercase;
+  color: var(--nur);
+  font-size: .9rem;
   margin-bottom: 14px;
 }
 .eyebrow--center { text-align: center; }
 
 /* ---------- 1. Գլխավոր բաժին ---------- */
-.hero {
-  position: relative;
-  padding: 72px 0 80px;
-  background:
-    radial-gradient(circle at 85% 20%, rgba(180, 97, 74, .14), transparent 45%),
-    linear-gradient(180deg, var(--tint), var(--paper));
-  overflow: hidden;
-}
-/* Մեծ «O» օղակ ֆոնում՝ բրենդի նշանը */
-.hero::before {
-  content: "";
-  position: absolute;
-  top: -120px;
-  left: -160px;
-  width: 460px;
-  height: 460px;
-  border: 1px solid rgba(180, 97, 74, .25);
-  border-radius: 50%;
-  pointer-events: none;
-}
+.hero { padding: 72px 0 88px; overflow: hidden; }
 .hero__grid {
-  position: relative;
   display: grid;
-  grid-template-columns: 1.1fr .9fr;
+  grid-template-columns: 1fr 1.05fr;
   align-items: center;
-  gap: 48px;
+  gap: 40px;
 }
 .hero__title {
-  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-family: var(--font-display);
+  font-size: clamp(2.3rem, 5.4vw, 4rem);
   font-weight: 400;
-  line-height: 1.25;
-  margin-bottom: 20px;
+  line-height: 1.12;
+  color: var(--olive-dark);
+  margin-bottom: 22px;
 }
-.hero__title em {
-  font-style: normal;
-  color: var(--accent);
-}
-.hero__text { max-width: 520px; color: var(--muted); font-size: 1.05rem; margin-bottom: 30px; }
+.hero__title em { font-style: italic; color: var(--nur); }
+.hero__text { max-width: 470px; color: var(--muted); font-size: 1.05rem; margin-bottom: 32px; }
 .hero__buttons { display: flex; flex-wrap: wrap; gap: 12px; }
-.hero__facts {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 28px;
-  margin: 40px 0 0;
-  padding: 24px 0 0;
-  border-top: 1px solid var(--line);
-  color: var(--muted);
-  font-size: .88rem;
-}
-.hero__facts strong {
-  display: block;
-  font-family: var(--font-brand);
-  font-size: 2rem;
-  font-weight: 500;
-  line-height: 1;
-  color: var(--ink);
-}
 
-/* Հեռախոսի պատկեր՝ ներսում իրական դեմոն */
-.hero__phone { display: flex; flex-direction: column; align-items: center; }
+/* Կոլաժ */
+.collage { position: relative; height: 600px; }
+.collage__photo {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 46%;
+  aspect-ratio: 3 / 4;
+  background-size: cover;
+  background-position: center;
+  box-shadow: var(--shadow);
+  transform: rotate(-4deg);
+}
+.collage__card {
+  position: absolute;
+  bottom: 10px;
+  left: 12%;
+  width: 42%;
+  padding: 34px 18px 30px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  text-align: center;
+  transform: rotate(3deg);
+  z-index: 2;
+}
+.collage__small { font-size: .8rem; color: var(--muted); }
+.collage__names {
+  font-family: var(--font-main);
+  font-size: 1.6rem;
+  line-height: 1.3;
+  color: var(--olive-dark);
+  margin: 6px 0;
+}
+.collage__names span { font-family: "Playfair Display", serif; font-style: italic; color: var(--nur); }
+.collage__date { font-family: "Playfair Display", serif; letter-spacing: 3px; font-size: .85rem; color: var(--muted); }
+/* Նռնագույն կնիք */
+.collage__seal {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin-left: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #c23a4f, var(--nur-dark));
+  box-shadow: 0 4px 8px rgba(110, 20, 36, .35);
+}
 .phone {
-  width: 300px;
-  height: 610px;
-  padding: 12px;
-  border-radius: 46px;
-  background: #1c1512;
-  box-shadow: var(--shadow), 0 0 0 1px rgba(0, 0, 0, .05);
-  transform: rotate(2deg);
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 570px;
+  padding: 11px;
+  border-radius: 42px;
+  background: #1f1a17;
+  box-shadow: var(--shadow);
+  z-index: 3;
 }
 .phone__screen {
   display: block;
   width: 100%;
   height: 100%;
   border: 0;
-  border-radius: 34px;
+  border-radius: 32px;
   background: #111;
 }
-.phone__note { margin-top: 18px; font-size: .85rem; color: var(--muted); }
+
+/* ---------- 2. Տոներ (մեծ բառեր) ---------- */
+.occasions { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--paper); }
+.occasions__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  gap: 12px 28px;
+  padding-top: 34px;
+  padding-bottom: 34px;
+}
+.occasions a {
+  font-family: var(--font-main);
+  font-size: clamp(1.5rem, 3.4vw, 2.5rem);
+  font-weight: 500;
+  color: var(--olive);
+  text-decoration: none;
+  transition: color .25s;
+}
+.occasions a:hover { color: var(--nur); }
+
+/* Նռան հատիկ՝ փոքր շեշտ */
+.seed {
+  display: inline-block;
+  width: 10px;
+  height: 14px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  background: var(--nur);
+}
 
 /* ---------- Բաժիններ ---------- */
-.section { padding: 88px 0; }
-.section--tight { padding: 0 0 24px; margin-top: -32px; position: relative; }
-.section--tint { background: var(--tint); }
-.section--dark { background: var(--ink); color: var(--white); }
-.section--dark .eyebrow { color: #e3a48f; }
+.section { padding: 96px 0; }
+.section--tint { background: var(--sand); }
+.section--dark { background: var(--nur-dark); color: var(--cream); }
+.section--dark .eyebrow { color: #f2b3aa; }
 .section__title {
   text-align: center;
-  font-size: clamp(1.6rem, 4vw, 2.3rem);
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4.2vw, 2.8rem);
   font-weight: 400;
-  line-height: 1.3;
-  margin-bottom: 36px;
+  line-height: 1.25;
+  color: var(--olive-dark);
+  margin-bottom: 40px;
 }
-
-/* ---------- 2. Տոներ ---------- */
-.events {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-.event {
-  display: block;
-  padding: 28px 24px;
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  color: var(--ink);
-  text-decoration: none;
-  text-align: center;
-  transition: transform .3s, box-shadow .3s, border-color .3s;
-}
-.event:hover, .event:focus-visible { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--accent); }
-.event svg, .feature svg {
-  width: 44px;
-  height: 44px;
-  fill: none;
-  stroke: var(--accent);
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  margin-bottom: 12px;
-}
-.event h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 4px; }
-.event p { color: var(--muted); font-size: .9rem; }
+.section--dark .section__title { color: var(--cream); }
 
 /* ---------- 3. Ֆիլտր ---------- */
 .filters {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 36px;
+  gap: 8px;
+  margin-bottom: 40px;
 }
 .filter {
-  padding: 8px 20px;
+  padding: 8px 18px;
   border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--white);
+  background: transparent;
   color: var(--ink);
-  font-family: inherit;
-  font-size: .9rem;
+  font-size: .95rem;
   cursor: pointer;
   transition: background .2s, color .2s, border-color .2s;
 }
-.filter:hover { border-color: var(--accent); }
-.filter.is-active { background: var(--ink); border-color: var(--ink); color: var(--white); }
+.filter:hover { border-color: var(--olive); }
+.filter.is-active { background: var(--olive); border-color: var(--olive); color: var(--cream); }
 
 /* ---------- Քարտեր ---------- */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 24px;
+  gap: 28px;
 }
-.card {
-  display: flex;
-  flex-direction: column;
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-  transition: transform .3s, box-shadow .3s;
-}
-.card:not(.card--soon):hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.card { display: flex; flex-direction: column; }
 .card__img {
   position: relative;
   display: block;
   aspect-ratio: 3 / 4;
-  background-color: var(--tint);
+  background-color: var(--sand);
   background-size: cover;
   background-position: center;
+  transition: transform .35s, box-shadow .35s;
 }
+.card:not(.card--soon):hover .card__img { transform: rotate(-1.5deg) translateY(-4px); box-shadow: var(--shadow); }
 .card__img--empty {
   display: grid;
   place-items: center;
-  background-image: repeating-linear-gradient(45deg, var(--tint) 0 12px, #eedcd0 12px 24px);
+  border: 1px dashed var(--line);
+  background: var(--paper);
 }
 .card__badge {
   position: absolute;
   top: 12px;
   left: 12px;
-  padding: 3px 12px;
-  border-radius: 999px;
-  background: var(--white);
-  color: var(--accent);
-  font-size: .75rem;
+  padding: 2px 10px;
+  background: var(--nur);
+  color: #fff;
+  font-size: .8rem;
 }
-.card__soon {
-  font-family: var(--font-brand);
-  font-style: italic;
-  font-size: 1.5rem;
-  color: var(--muted);
-}
-.card__body { padding: 18px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
-.card__code { font-family: var(--font-brand); font-weight: 600; color: var(--accent); letter-spacing: 1px; }
-.card__title { font-size: 1.05rem; font-weight: 600; }
-.card__features { font-size: .85rem; color: var(--muted); margin-bottom: 10px; }
+.card__soon { font-family: "Playfair Display", serif; font-style: italic; font-size: 1.5rem; color: var(--olive); }
+.card__body { padding: 16px 2px 0; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.card__code { color: var(--olive); font-size: .9rem; }
+.card__title { font-family: var(--font-main); font-size: 1.15rem; font-weight: 500; }
+.card__features { font-size: .85rem; color: var(--muted); margin-bottom: 12px; }
 .card .btn { margin-top: auto; align-self: flex-start; }
-.card--soon { opacity: .75; }
+.card--soon { opacity: .8; }
 
 /* ---------- 4. Հնարավորություններ ---------- */
 .features {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
 }
 .feature {
-  padding: 28px 24px;
-  background: var(--white);
-  border-radius: var(--radius);
+  padding: 32px 28px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
-.feature svg { margin-bottom: 10px; }
-.feature h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 4px; }
-.feature p { color: var(--muted); font-size: .92rem; }
+.feature svg {
+  width: 40px;
+  height: 40px;
+  fill: none;
+  stroke: var(--nur);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  margin-bottom: 12px;
+}
+.feature h3 { font-size: 1.1rem; font-weight: 500; margin-bottom: 4px; color: var(--olive-dark); }
+.feature p { color: var(--muted); font-size: .94rem; }
 
 /* ---------- 5. Քայլեր ---------- */
 .steps {
@@ -338,61 +357,42 @@ h1, h2, h3, p { margin: 0; }
   padding: 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  text-align: center;
+  gap: 28px;
 }
+.steps li { border-top: 1px solid var(--olive); padding-top: 18px; }
 .steps span {
-  display: inline-grid;
-  place-items: center;
-  width: 54px;
-  height: 54px;
-  margin-bottom: 14px;
-  border: 1px solid var(--accent);
-  border-radius: 50%;
-  font-family: var(--font-brand);
-  font-size: 1.6rem;
-  color: var(--accent);
+  display: block;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 2.6rem;
+  line-height: 1;
+  color: var(--nur);
+  margin-bottom: 10px;
 }
-.steps h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; }
-.steps p { color: var(--muted); font-size: .93rem; }
+.steps h3 { font-size: 1.08rem; font-weight: 500; margin-bottom: 6px; }
+.steps p { color: var(--muted); font-size: .94rem; }
 
 /* ---------- 6. Մտքի բաժին ---------- */
-.quote {
-  padding: 96px 0;
-  text-align: center;
-  background: var(--tint);
-}
-.quote__mark {
-  font-family: var(--font-brand);
-  font-size: 5rem;
-  line-height: .6;
-  color: var(--accent);
-}
+.quote { padding: 110px 0; text-align: center; background: var(--olive); color: var(--cream); }
+.quote__mark { font-family: "Playfair Display", serif; font-size: 5rem; line-height: .6; color: #f2b3aa; }
 .quote__text {
-  max-width: 720px;
-  margin: 16px auto 18px;
-  font-size: clamp(1.25rem, 3.4vw, 1.8rem);
+  max-width: 760px;
+  margin: 18px auto 20px;
+  font-size: clamp(1.3rem, 3.4vw, 2rem);
   font-weight: 300;
-  line-height: 1.55;
+  line-height: 1.5;
 }
-.quote__sign {
-  font-family: var(--font-brand);
-  font-style: italic;
-  font-size: 1.6rem;
-  color: var(--accent);
-}
+.quote__sign { font-family: "Playfair Display", serif; font-style: italic; font-size: 1.8rem; }
 
 /* ---------- 7. FAQ ---------- */
-.faq { max-width: 760px; }
-.faq details {
-  border-bottom: 1px solid var(--line);
-  padding: 18px 0;
-}
+.faq { max-width: 780px; }
+.faq details { border-bottom: 1px solid var(--line); padding: 20px 0; }
 .faq summary {
   display: flex;
   justify-content: space-between;
   gap: 16px;
   font-weight: 400;
+  font-size: 1.05rem;
   cursor: pointer;
   list-style: none;
 }
@@ -400,10 +400,10 @@ h1, h2, h3, p { margin: 0; }
 .faq summary::after {
   content: "+";
   flex-shrink: 0;
-  font-family: var(--font-brand);
+  font-family: "Playfair Display", serif;
   font-size: 1.6rem;
   line-height: 1;
-  color: var(--accent);
+  color: var(--nur);
   transition: transform .25s;
 }
 .faq details[open] summary::after { transform: rotate(45deg); }
@@ -411,24 +411,14 @@ h1, h2, h3, p { margin: 0; }
 
 /* ---------- 8. Պատվեր ---------- */
 .order { text-align: center; }
-.order > p { color: rgba(255, 253, 250, .8); }
-.order__buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 28px;
-}
+.order > p { color: rgba(247, 242, 234, .85); }
+.order__buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 30px; }
 
 /* ---------- Ներքնամաս ---------- */
-.site-footer {
-  padding: 40px 0;
-  text-align: center;
-  color: var(--muted);
-  font-size: .9rem;
-}
+.site-footer { padding: 44px 0; background: var(--olive); color: rgba(247, 242, 234, .85); text-align: center; font-size: .92rem; }
+.site-footer .logo { color: var(--cream); }
 .site-footer__inner { display: flex; flex-direction: column; align-items: center; gap: 6px; }
-.site-footer__copy { font-size: .8rem; }
+.site-footer__copy { font-size: .8rem; opacity: .8; }
 
 /* ---------- Scroll-ի անիմացիա ---------- */
 .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
@@ -439,37 +429,39 @@ h1, h2, h3, p { margin: 0; }
 }
 
 /* ---------- Պլանշետ ---------- */
-@media (max-width: 900px) {
-  .nav { display: none; } /* մենյուն թաքցնում ենք, «Պատվիրել» կոճակը մնում է */
+@media (max-width: 960px) {
   .hero__grid { grid-template-columns: 1fr; text-align: center; }
   .hero__text { margin-left: auto; margin-right: auto; }
-  .hero__buttons, .hero__facts { justify-content: center; }
-  .phone { transform: none; }
+  .hero__buttons { justify-content: center; }
+  .collage { max-width: 560px; width: 100%; margin: 16px auto 0; }
   .features { grid-template-columns: repeat(2, 1fr); }
   .steps { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ---------- Հեռախոս ---------- */
 @media (max-width: 600px) {
-  .site-header__inner { min-height: 60px; }
-  .logo__word { font-size: 1.6rem; }
-  .hero { padding: 48px 0 72px; }
-  .hero__facts { gap: 18px; }
-  .hero__facts strong { font-size: 1.6rem; }
-  .phone { width: 260px; height: 530px; border-radius: 40px; padding: 10px; }
-  .phone__screen { border-radius: 30px; }
+  .announce { font-size: .75rem; }
+  .site-header__inner { padding-top: 10px; padding-bottom: 8px; }
+  .logo__word { font-size: 2.1rem; }
+  .nav { gap: 2px 16px; }
+  .nav a { font-size: .85rem; }
+  .nav a:not(.nav__accent):nth-child(n+3) { display: none; } /* հեռախոսում՝ միայն 3 հղում */
+  .hero { padding: 44px 0 56px; }
+  .collage { height: 480px; }
+  .collage__photo { width: 50%; top: 40px; }
+  .collage__card { width: 47%; left: 0; padding: 28px 10px 22px; z-index: 4; }
+  .occasions .seed { display: none; }
+  .collage__names { font-size: 1.25rem; }
+  .phone { width: 200px; height: 420px; border-radius: 34px; padding: 9px; }
+  .phone__screen { border-radius: 26px; }
+  .occasions__row { justify-content: center; gap: 6px 16px; padding-top: 24px; padding-bottom: 24px; }
   .section { padding: 64px 0; }
-  .section--tight { padding: 0 0 8px; }
-  .events { grid-template-columns: 1fr; gap: 12px; }
-  .event { display: grid; grid-template-columns: auto 1fr; column-gap: 16px; align-items: center; text-align: left; padding: 18px; }
-  .event svg { grid-row: span 2; margin: 0; }
-  .features { grid-template-columns: 1fr; gap: 12px; }
-  .feature { padding: 20px; }
+  .features { grid-template-columns: 1fr; }
+  .feature { padding: 22px 20px; }
   .steps { grid-template-columns: 1fr; }
-  .cards { grid-template-columns: 1fr 1fr; gap: 12px; }
-  .card__body { padding: 12px; }
+  .cards { grid-template-columns: 1fr 1fr; gap: 16px; }
   .card__features { display: none; }
-  .card .btn { padding: 7px 14px; font-size: .8rem; }
+  .card .btn { padding: 7px 12px; font-size: .82rem; }
   .card__soon { font-size: 1.2rem; }
-  .quote { padding: 72px 0; }
+  .quote { padding: 76px 0; }
 }

@@ -7,7 +7,7 @@
   <!-- ===== SEO: վերնագիրը և նկարագրությունը երևում են Google-ում ===== -->
   <title>Once — առցանց հրավիրատոմսեր հարսանիքի, մկրտության և ծննդյան տոնի համար</title>
   <meta name="description" content="Once․ գեղեցիկ առցանց հրավիրատոմսեր՝ հետհաշվարկով, քարտեզով, երաժշտությամբ և հյուրերի պատասխաններով։ Ընտրեք ձևանմուշ, պատրաստ հղումը կստանաք 1–2 օրում։">
-  <meta name="theme-color" content="#fbf6f0">
+  <meta name="theme-color" content="#8b7547">
   <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
   <!-- onceinvite.am domain-ը միացնելուց հետո այստեղ և og:image-ում փոխեք հասցեն -->
   <link rel="canonical" href="https://onceinvite.github.io/">
@@ -23,29 +23,33 @@
   <!-- Տառատեսակներ -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+Armenian:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+Armenian:wght@300;400;500;600&family=Noto+Sans+Armenian:wdth,wght@62.5..100,300..500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
 
+  <!-- ============ ՎԵՐԵՎԻ ԺԱՊԱՎԵՆ ============ -->
+  <p class="announce">Առցանց հրավիրատոմսեր հարսանիքի, մկրտության և ծննդյան տոնի համար · պատրաստ 1–2 օրում</p>
+
   <!-- ============ ՎԵՐՆԱՄԱՍ ============ -->
+  <!-- Լոգոյի նուռը նույն նշանն է, ինչ assets/img/logo.svg-ում -->
   <header class="site-header">
     <div class="wrap site-header__inner">
       <a href="./" class="logo" aria-label="Once — գլխավոր էջ">
-        <svg class="logo__mark" viewBox="0 0 64 64" aria-hidden="true">
-          <circle cx="32" cy="32" r="17" fill="none" stroke="currentColor" stroke-width="3.5"/>
-          <circle cx="44" cy="20" r="5.5" class="logo__dot"/>
-        </svg>
         <span class="logo__word">Once</span>
+        <svg class="logo__mark" viewBox="0 0 64 64" aria-hidden="true">
+          <path class="logo__fruit" d="M32 14c-1.5-3-3-5-6-6l3 1 3-4 3 4 3-1c-3 1-4.5 3-6 6zM32 14c11 0 22 8 22 21 0 12-10 22-22 22S10 47 10 35c0-13 11-21 22-21z"/>
+          <circle cx="26" cy="34" r="2.4" class="logo__seed"/><circle cx="34" cy="31" r="2.4" class="logo__seed"/><circle cx="30" cy="41" r="2.4" class="logo__seed"/><circle cx="38" cy="39" r="2.4" class="logo__seed"/>
+        </svg>
       </a>
       <nav class="nav" aria-label="Գլխավոր մենյու">
         <a href="#catalog">Ձևանմուշներ</a>
         <a href="#features">Հնարավորություններ</a>
         <a href="#how">Ինչպես է աշխատում</a>
         <a href="#faq">Հարցեր</a>
+        <a href="#order" class="nav__accent">Պատվիրել</a>
       </nav>
-      <a href="#order" class="btn btn--small">Պատվիրել</a>
     </div>
   </header>
 
@@ -55,50 +59,39 @@
     <section class="hero">
       <div class="wrap hero__grid">
         <div class="hero__content">
-          <p class="eyebrow">Առցանց հրավիրատոմսեր</p>
+          <p class="eyebrow">Once · առցանց հրավիրատոմսեր</p>
           <h1 class="hero__title">Պահեր, որ լինում են <em>մեկ անգամ</em></h1>
-          <p class="hero__text">Հարսանիք, մկրտություն, ծննդյան տոն։ Գեղեցիկ հրավեր՝ հետհաշվարկով, քարտեզով, երաժշտությամբ և հյուրերի պատասխաններով։ Ամբողջը՝ մեկ հղումով։</p>
+          <p class="hero__text">Գեղեցիկ հրավեր՝ հետհաշվարկով, քարտեզով, երաժշտությամբ և հյուրերի պատասխաններով։ Ամբողջը՝ մեկ հղումով, որը ուղարկում եք WhatsApp-ով կամ Viber-ով։</p>
           <div class="hero__buttons">
-            <a href="#catalog" class="btn">Դիտել ձևանմուշները</a>
+            <a href="#catalog" class="btn">Ընտրել ձևանմուշ</a>
             <a href="templates/wedding/w01/" class="btn btn--outline" target="_blank" rel="noopener">Բացել դեմոն</a>
           </div>
-          <ul class="hero__facts">
-            <li><strong>1–2</strong> օրում պատրաստ</li>
-            <li><strong>3</strong> տեսակի տոն</li>
-            <li><strong>∞</strong> հյուր, մեկ հղում</li>
-          </ul>
         </div>
 
-        <!-- Հեռախոսի մեջ երևում է իրական դեմոն (կարելի է scroll անել) -->
-        <div class="hero__phone">
+        <!-- Կոլաժ՝ թղթե հրավեր, լուսանկար և հեռախոս՝ իրական դեմոյով -->
+        <div class="collage" aria-hidden="false">
+          <div class="collage__photo" style="background-image:url('templates/wedding/w01/hero.jpg')"></div>
+          <div class="collage__card" aria-hidden="true">
+            <p class="collage__small">Սիրով հրավիրում ենք</p>
+            <p class="collage__names">Եվա <span>&amp;</span> Արամ</p>
+            <p class="collage__date">19 · 06 · 2027</p>
+            <span class="collage__seal"></span>
+          </div>
           <div class="phone">
             <iframe class="phone__screen" src="templates/wedding/w01/" title="Հարսանեկան հրավերի դեմո" loading="lazy"></iframe>
           </div>
-          <p class="phone__note">Փորձեք․ սեղմեք «Բացել հրավերը»</p>
         </div>
       </div>
     </section>
 
-    <!-- ============ 2. ՏՈՆԵՐ ============ -->
-    <section class="section section--tight">
-      <div class="wrap">
-        <div class="events">
-          <a class="event reveal" href="#catalog" data-go="wedding">
-            <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="19" cy="28" r="10"/><circle cx="29" cy="28" r="10"/><path d="M20 10l4-4 4 4-4 4z"/></svg>
-            <h3>Հարսանիք</h3>
-            <p>Նշանադրություն, պսակադրություն, հարսանիք</p>
-          </a>
-          <a class="event reveal" href="#catalog" data-go="baptism">
-            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6v36M14 16h20"/><path d="M12 42h24"/></svg>
-            <h3>Մկրտություն</h3>
-            <p>Կնունք և փոքրիկի առաջին մեծ տոնը</p>
-          </a>
-          <a class="event reveal" href="#catalog" data-go="birthday">
-            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 42V26h28v16"/><path d="M8 42h32"/><path d="M18 26v-6M30 26v-6M24 26v-8"/><path d="M24 14c-2-2-2-4 0-6 2 2 2 4 0 6z"/></svg>
-            <h3>Ծննդյան տոն</h3>
-            <p>Մանկական և հոբելյանական տոներ</p>
-          </a>
-        </div>
+    <!-- ============ 2. ՏՈՆԵՐ (մեծ բառեր) ============ -->
+    <section class="occasions" aria-label="Տոներ">
+      <div class="wrap occasions__row">
+        <a href="#catalog" data-go="wedding">Հարսանիք</a>
+        <span class="seed" aria-hidden="true"></span>
+        <a href="#catalog" data-go="baptism">Մկրտություն</a>
+        <span class="seed" aria-hidden="true"></span>
+        <a href="#catalog" data-go="birthday">Ծննդյան տոն</a>
       </div>
     </section>
 
@@ -256,13 +249,7 @@
 
   <footer class="site-footer">
     <div class="wrap site-footer__inner">
-      <a href="./" class="logo logo--small" aria-label="Once">
-        <svg class="logo__mark" viewBox="0 0 64 64" aria-hidden="true">
-          <circle cx="32" cy="32" r="17" fill="none" stroke="currentColor" stroke-width="3.5"/>
-          <circle cx="44" cy="20" r="5.5" class="logo__dot"/>
-        </svg>
-        <span class="logo__word">Once</span>
-      </a>
+      <a href="./" class="logo logo--small" aria-label="Once"><span class="logo__word">Once</span></a>
       <p>Պահեր, որ լինում են մեկ անգամ</p>
       <p class="site-footer__copy">© 2026 Once · Բոլոր իրավունքները պաշտպանված են</p>
     </div>
