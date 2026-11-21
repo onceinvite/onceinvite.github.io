@@ -3,7 +3,7 @@
    ========================================================= */
 
 // Հարսանիքի ամսաթիվն ու ժամը (+04:00 = Երևանի ժամ)
-const WEDDING_DATE = new Date("2026-11-20T14:00:00+04:00");
+const WEDDING_DATE = new Date("2027-06-19T14:00:00+04:00");
 
 // Google Apps Script-ի Web app հղումը
 // (օրինակ՝ "https://script.google.com/macros/s/AKfy.../exec")
