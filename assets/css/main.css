@@ -10,9 +10,9 @@
   --sand: #ede4d6;       /* բաց բաժիններ */
   --olive: #8b7547;      /* ձիթաոսկեգույն՝ վերնամաս, ներքնամաս */
   --olive-dark: #6f5d37;
-  --nur: #9e1b32;        /* նուռ՝ միայն շեշտերի համար */
-  --nur-dark: #6e1424;
-  --nur-bright: #c0283f;  /* վառ նուռ՝ կոճակներ և ձեռագիր գծեր */
+  --accent: #d9541e;       /* նարնջագույն՝ կոճակներ, ձեռագիր գծեր */
+  --accent-text: #b8441a;  /* մի քիչ մուգ նարնջագույն՝ փոքր տեքստերի համար */
+  --accent-dark: #8f3514;  /* մուգ՝ «Պատվիրեք» բաժնի ֆոն, hover */
   --ink: #2b2420;        /* տեքստ */
   --muted: #6f655c;
   --line: #ddd2c2;
@@ -51,16 +51,16 @@ h1, h2, h3, p { margin: 0; }
 }
 
 /* ---------- Կոճակներ ---------- */
-/* Հիմնական կոճակ՝ կլոր, նռնագույն */
+/* Հիմնական կոճակ՝ կլոր, նարնջագույն */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   padding: 13px 28px;
-  border: 1px solid var(--nur-bright);
+  border: 1px solid var(--accent);
   border-radius: 999px;
-  background: var(--nur-bright);
+  background: var(--accent);
   color: #fff;
   font-size: 1rem;
   font-weight: 400;
@@ -68,7 +68,7 @@ h1, h2, h3, p { margin: 0; }
   cursor: pointer;
   transition: background .25s, color .25s, border-color .25s, transform .25s;
 }
-.btn:hover, .btn:focus-visible { background: var(--nur-dark); border-color: var(--nur-dark); transform: translateY(-1px); }
+.btn:hover, .btn:focus-visible { background: #b8441a; border-color: #b8441a; transform: translateY(-1px); }
 
 /* Սլաք՝ «→», շարժվում է hover-ի ժամանակ */
 .btn--arrow::after { content: "→"; font-family: Georgia, serif; text-transform: none; transition: transform .25s; }
@@ -76,7 +76,7 @@ h1, h2, h3, p { margin: 0; }
 
 /* Երկրորդական կոճակ՝ առանց ֆոնի, կլոր «play» նշանով */
 .btn--play { padding-left: 6px; background: transparent; border-color: transparent; color: var(--ink); }
-.btn--play:hover, .btn--play:focus-visible { background: transparent; border-color: transparent; color: var(--nur-bright); }
+.btn--play:hover, .btn--play:focus-visible { background: transparent; border-color: transparent; color: var(--accent); }
 .btn__circle {
   position: relative;
   width: 40px;
@@ -99,16 +99,16 @@ h1, h2, h3, p { margin: 0; }
 .btn--outline { background: transparent; border-color: var(--ink); color: var(--ink); }
 .btn--outline:hover, .btn--outline:focus-visible { background: var(--ink); border-color: var(--ink); color: var(--cream); }
 .btn--small { padding: 7px 18px; font-size: .9rem; }
-.btn--light { background: var(--cream); border-color: var(--cream); color: var(--nur-dark); }
-.btn--light:hover, .btn--light:focus-visible { background: #fff; border-color: #fff; color: var(--nur-dark); }
+.btn--light { background: var(--cream); border-color: var(--cream); color: var(--accent-dark); }
+.btn--light:hover, .btn--light:focus-visible { background: #fff; border-color: #fff; color: var(--accent-dark); }
 .btn--ghost { background: transparent; border-color: rgba(247, 242, 234, .6); color: var(--cream); }
-.btn--ghost:hover, .btn--ghost:focus-visible { background: var(--cream); border-color: var(--cream); color: var(--nur-dark); }
+.btn--ghost:hover, .btn--ghost:focus-visible { background: var(--cream); border-color: var(--cream); color: var(--accent-dark); }
 
-/* ---------- Ձեռագիր նռնագույն գիծ բառի տակ ---------- */
+/* ---------- Ձեռագիր նարնջագույն գիծ բառի տակ ---------- */
 /* Օգտագործեք քիչ՝ մեկ-երկու կարևոր բառի համար. <span class="scribble">բառ</span> */
 .scribble {
   padding-bottom: .14em;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 20' preserveAspectRatio='none'%3E%3Cpath d='M4 14 C 60 6, 120 4, 180 8 S 270 13, 296 7' fill='none' stroke='%23c0283f' stroke-width='4.5' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat left bottom / 100% .32em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 20' preserveAspectRatio='none'%3E%3Cpath d='M4 14 C 60 6, 120 4, 180 8 S 270 13, 296 7' fill='none' stroke='%23d9541e' stroke-width='4.5' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat left bottom / 100% .32em;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
@@ -155,18 +155,18 @@ h1, h2, h3, p { margin: 0; }
   letter-spacing: -.5px;
 }
 .logo__mark { width: 26px; height: 26px; margin-top: -14px; }
-.logo__fruit { fill: var(--nur); }
-.logo__seed { fill: #f2c9c4; }
+.logo__fruit { fill: var(--accent-text); }
+.logo__seed { fill: #ffe2cf; }
 .logo--small .logo__word { font-size: 2rem; }
 
 .nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 30px; }
 .nav a { color: var(--cream); text-decoration: none; font-size: .98rem; opacity: .92; }
 .nav a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 6px; }
-.nav__accent { color: #ffd3cc !important; font-weight: 500; } /* «Պատվիրել»՝ նռան բաց երանգով */
+.nav__accent { color: #ffd9c2 !important; font-weight: 500; } /* «Պատվիրել»՝ բաց նարնջագույնով */
 
 /* ---------- Փոքր վերնագիր ---------- */
 .eyebrow {
-  color: var(--nur);
+  color: var(--accent-text);
   font-size: .9rem;
   margin-bottom: 14px;
 }
@@ -188,7 +188,7 @@ h1, h2, h3, p { margin: 0; }
   color: var(--olive-dark);
   margin-bottom: 22px;
 }
-.hero__title em { font-style: italic; color: var(--nur); }
+.hero__title em { font-style: italic; color: var(--accent-text); }
 .section__title .scribble { font-style: italic; }
 .hero__text { max-width: 470px; color: var(--muted); font-size: 1.05rem; margin-bottom: 32px; }
 .hero__buttons { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; }
@@ -227,9 +227,9 @@ h1, h2, h3, p { margin: 0; }
   color: var(--olive-dark);
   margin: 6px 0;
 }
-.collage__names span { font-family: "Playfair Display", serif; font-style: italic; color: var(--nur); }
+.collage__names span { font-family: "Playfair Display", serif; font-style: italic; color: var(--accent-text); }
 .collage__date { font-family: "Playfair Display", serif; letter-spacing: 3px; font-size: .85rem; color: var(--muted); }
-/* Նռնագույն կնիք */
+/* Նարնջագույն կնիք */
 .collage__seal {
   position: absolute;
   top: -18px;
@@ -238,8 +238,8 @@ h1, h2, h3, p { margin: 0; }
   height: 40px;
   margin-left: -20px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #c23a4f, var(--nur-dark));
-  box-shadow: 0 4px 8px rgba(110, 20, 36, .35);
+  background: radial-gradient(circle at 35% 35%, #ee7a45, var(--accent-dark));
+  box-shadow: 0 4px 8px rgba(143, 53, 20, .35);
 }
 .phone {
   position: absolute;
@@ -281,22 +281,22 @@ h1, h2, h3, p { margin: 0; }
   text-decoration: none;
   transition: color .25s;
 }
-.occasions a:hover { color: var(--nur); }
+.occasions a:hover { color: var(--accent-text); }
 
-/* Նռան հատիկ՝ փոքր շեշտ */
+/* Փոքր կլոր շեշտ */
 .seed {
   display: inline-block;
   width: 10px;
   height: 14px;
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  background: var(--nur);
+  background: var(--accent-text);
 }
 
 /* ---------- Բաժիններ ---------- */
 .section { padding: 96px 0; }
 .section--tint { background: var(--sand); }
-.section--dark { background: var(--nur-dark); color: var(--cream); }
-.section--dark .eyebrow { color: #f2b3aa; }
+.section--dark { background: var(--accent-dark); color: var(--cream); }
+.section--dark .eyebrow { color: #ffc7a8; }
 .section__title {
   text-align: center;
   font-family: var(--font-display);
@@ -356,7 +356,7 @@ h1, h2, h3, p { margin: 0; }
   top: 12px;
   left: 12px;
   padding: 2px 10px;
-  background: var(--nur);
+  background: var(--accent-text);
   color: #fff;
   font-size: .8rem;
 }
@@ -384,7 +384,7 @@ h1, h2, h3, p { margin: 0; }
   width: 40px;
   height: 40px;
   fill: none;
-  stroke: var(--nur);
+  stroke: var(--accent-text);
   stroke-width: 1.4;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -409,7 +409,7 @@ h1, h2, h3, p { margin: 0; }
   font-style: italic;
   font-size: 2.6rem;
   line-height: 1;
-  color: var(--nur);
+  color: var(--accent-text);
   margin-bottom: 10px;
 }
 .steps h3 { font-size: 1.08rem; font-weight: 500; margin-bottom: 6px; }
@@ -417,7 +417,7 @@ h1, h2, h3, p { margin: 0; }
 
 /* ---------- 6. Մտքի բաժին ---------- */
 .quote { padding: 110px 0; text-align: center; background: var(--olive); color: var(--cream); }
-.quote__mark { font-family: "Playfair Display", serif; font-size: 5rem; line-height: .6; color: #f2b3aa; }
+.quote__mark { font-family: "Playfair Display", serif; font-size: 5rem; line-height: .6; color: #ffc7a8; }
 .quote__text {
   max-width: 760px;
   margin: 18px auto 20px;
@@ -446,7 +446,7 @@ h1, h2, h3, p { margin: 0; }
   font-family: "Playfair Display", serif;
   font-size: 1.6rem;
   line-height: 1;
-  color: var(--nur);
+  color: var(--accent-text);
   transition: transform .25s;
 }
 .faq details[open] summary::after { transform: rotate(45deg); }
