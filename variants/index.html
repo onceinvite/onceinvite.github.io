@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Once — 3 օրգանիկ տարբերակ</title>
+  <!-- ՓՈՐՁՆԱԿԱՆ էջ՝ միայն ոճերը համեմատելու համար -->
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Noto+Serif+Armenian:wght@300;400;500&family=Noto+Sans+Armenian:wdth,wght@62.5..100,300..500&display=swap" rel="stylesheet">
+  <style>
+    /* Ընդհանուր */
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: "Noto Serif Armenian", Georgia, serif; font-weight: 300; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    h1, h2, h3, p { margin: 0; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+
+    /* Թղթի հատիկավոր ֆակտուրա */
+    .v { --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .4 0 0 0 0 .33 0 0 0 0 .25 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      position: relative; overflow: hidden; background: var(--bg) var(--grain); color: var(--ink); }
+
+    /* Պիտակ՝ որ տարբերակն է */
+    .label { position: relative; z-index: 3; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; padding: 18px 0;
+      font-family: "Noto Sans Armenian", sans-serif; font-stretch: 75%; text-transform: uppercase; letter-spacing: 1.5px; font-size: .9rem; }
+    .swatches { display: flex; gap: 6px; }
+    .swatches i { width: 22px; height: 22px; border-radius: 50%; border: 1px solid rgba(0,0,0,.08); }
+
+    /* Գլխավոր բաժին */
+    .hero { position: relative; z-index: 2; min-height: 78vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 24px 0 120px; }
+    .hero img { width: min(480px, 78vw); height: auto; transform: rotate(-4deg); margin-bottom: 6px; }
+    .hero h2 { font-size: clamp(1.4rem, 3.4vw, 2.1rem); font-weight: 400; margin-bottom: 8px; }
+    .hero p { color: var(--muted); margin-bottom: 28px; max-width: 520px; }
+    .buttons { display: flex; flex-wrap: wrap; gap: 12px 20px; justify-content: center; align-items: center; }
+    .btn { display: inline-flex; gap: 10px; align-items: center; padding: 13px 28px; border-radius: 999px; background: var(--accent); color: #fff; text-decoration: none;
+      font-family: "Noto Sans Armenian", sans-serif; font-stretch: 75%; text-transform: uppercase; letter-spacing: 1.2px; font-size: 1rem; }
+    .btn::after { content: "→"; font-family: Georgia, serif; }
+    .link { color: var(--ink); font-family: "Noto Sans Armenian", sans-serif; font-stretch: 75%; text-transform: uppercase; letter-spacing: 1.2px; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+
+    /* Ձեռագիր զարդեր */
+    .deco { position: absolute; z-index: 1; fill: none; stroke: var(--line-art); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
+
+    /* Ներքևի քարտեր՝ ցույց տալու, թե ինչպես է երևում բովանդակությունը */
+    .strip { position: relative; z-index: 2; background: var(--bg2) var(--grain); padding: 56px 0 64px; }
+    .strip h3 { text-align: center; font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 400; margin-bottom: 28px; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card { background: var(--card); padding: 26px 20px; text-align: center; }
+    .card b { display: block; font-weight: 500; font-size: 1.1rem; margin-bottom: 4px; }
+    .card span { color: var(--muted); font-size: .9rem; }
+
+    /* ===== A. ԱՅԳԻ ===== */
+    .a { --bg: #f3eee4; --bg2: #e4e6d8; --card: #f8f5ee; --ink: #36302a; --muted: #6f6a5f; --accent: #b9483a; --line-art: #7f8f6a; }
+    .a .card { border-radius: 4px 40px 4px 40px; }
+    /* Պատռված թղթի եզր */
+    .torn { position: absolute; left: 0; right: 0; bottom: 100%; height: 26px; width: 100%; fill: var(--bg2); }
+
+    /* ===== B. ԿԱՎ ===== */
+    .b { --bg: #efe3d3; --bg2: #e6d2bd; --card: #f6ece0; --ink: #3b2a22; --muted: #7a6455; --accent: #a45238; --line-art: #b07a5c; }
+    .blob { position: absolute; z-index: 0; border-radius: 58% 42% 63% 37% / 45% 55% 45% 55%; }
+    .b .card { border-radius: 999px 999px 18px 18px; padding-top: 44px; }
+
+    /* ===== C. ԴԱՇՏ ===== */
+    .c { --bg: #fbf6ec; --bg2: #f5e3d9; --card: #fffaf2; --ink: #3a2a24; --muted: #7a655b; --accent: #d24e3f; --line-art: #d24e3f; }
+    .c .card { border-radius: 18px; border: 1px dashed #e6c3b6; }
+    .wave { position: absolute; left: 0; right: 0; bottom: 100%; width: 100%; height: 40px; fill: var(--bg2); }
+
+    @media (max-width: 700px) {
+      .cards { grid-template-columns: 1fr; }
+      .hero { min-height: 70vh; padding-bottom: 90px; }
+      .deco--big { transform: scale(.6); transform-origin: top left; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== A. ԱՅԳԻ ==================== -->
+  <section class="v a">
+    <div class="wrap label"><span>Տարբերակ A · Այգի</span><span class="swatches"><i style="background:#f3eee4"></i><i style="background:#e4e6d8"></i><i style="background:#7f8f6a"></i><i style="background:#b9483a"></i><i style="background:#36302a"></i></span></div>
+
+    <!-- Ձիթենու ճյուղ՝ ձեռագիր գծանկար -->
+    <svg class="deco deco--big" style="top:40px;left:-30px;width:340px" viewBox="0 0 340 300" aria-hidden="true">
+      <path d="M10 280 C 90 220, 170 150, 330 20"/>
+      <path d="M60 244 c -8 -30 6 -52 30 -60 c 6 26 -8 48 -30 60z"/>
+      <path d="M95 218 c 26 -6 48 6 58 28 c -26 6 -48 -6 -58 -28z"/>
+      <path d="M135 186 c -6 -30 10 -50 34 -56 c 4 26 -10 46 -34 56z"/>
+      <path d="M172 158 c 26 -4 46 10 54 32 c -26 4 -46 -10 -54 -32z"/>
+      <path d="M210 126 c -4 -28 12 -48 36 -52 c 2 26 -12 44 -36 52z"/>
+      <path d="M248 96 c 24 -2 44 12 50 34 c -24 2 -44 -12 -50 -34z"/>
+      <ellipse cx="118" cy="232" rx="6" ry="8"/><ellipse cx="232" cy="140" rx="6" ry="8"/>
+    </svg>
+    <svg class="deco" style="bottom:60px;right:-20px;width:260px;transform:scaleX(-1)" viewBox="0 0 340 300" aria-hidden="true">
+      <path d="M10 280 C 90 220, 170 150, 330 20"/>
+      <path d="M60 244 c -8 -30 6 -52 30 -60 c 6 26 -8 48 -30 60z"/>
+      <path d="M95 218 c 26 -6 48 6 58 28 c -26 6 -48 -6 -58 -28z"/>
+      <path d="M135 186 c -6 -30 10 -50 34 -56 c 4 26 -10 46 -34 56z"/>
+      <path d="M172 158 c 26 -4 46 10 54 32 c -26 4 -46 -10 -54 -32z"/>
+    </svg>
+
+    <div class="wrap hero">
+      <img src="../assets/img/once-script-rosehip.png" alt="Once" width="753" height="482">
+      <h2>Պահեր, որ լինում են մեկ անգամ</h2>
+      <p>Առցանց հրավիրատոմսեր հարսանիքի, մկրտության և ծննդյան տոնի համար</p>
+      <div class="buttons"><a class="btn" href="#">Ընտրել ձևանմուշ</a><a class="link" href="#">Բացել դեմոն</a></div>
+    </div>
+
+    <div class="strip">
+      <svg class="torn" viewBox="0 0 1200 26" preserveAspectRatio="none" aria-hidden="true"><path d="M0 26 L0 14 L40 10 L70 16 L110 8 L150 13 L200 6 L240 12 L290 9 L330 15 L380 7 L430 12 L470 8 L520 14 L560 6 L610 11 L650 8 L700 15 L740 9 L790 12 L830 6 L880 13 L920 9 L970 15 L1010 7 L1060 12 L1100 8 L1150 13 L1200 9 L1200 26Z"/></svg>
+      <div class="wrap">
+        <h3>Ընտրեք Ձեր տոնը</h3>
+        <div class="cards"><div class="card"><b>Հարսանիք</b><span>W01 · W02</span></div><div class="card"><b>Մկրտություն</b><span>B01</span></div><div class="card"><b>Ծննդյան տոն</b><span>D01</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== B. ԿԱՎ ==================== -->
+  <section class="v b">
+    <div class="wrap label"><span>Տարբերակ B · Կավ և չորացրած ծաղիկներ</span><span class="swatches"><i style="background:#efe3d3"></i><i style="background:#e6d2bd"></i><i style="background:#d9b79c"></i><i style="background:#a45238"></i><i style="background:#3b2a22"></i></span></div>
+
+    <!-- Փափուկ «կավե» ձևեր -->
+    <div class="blob" style="width:420px;height:380px;background:#e3c9b2;top:60px;right:-120px"></div>
+    <div class="blob" style="width:300px;height:280px;background:#ead8c6;bottom:140px;left:-90px;border-radius:40% 60% 45% 55% / 60% 40% 60% 40%"></div>
+
+    <!-- Չորացրած ծաղիկ՝ գծանկար -->
+    <svg class="deco" style="top:90px;left:6%;width:150px" viewBox="0 0 150 260" aria-hidden="true">
+      <path d="M75 255 C 70 190, 80 120, 75 40"/>
+      <path d="M75 40 c -10 -14 -10 -26 0 -34 c 10 8 10 20 0 34z"/>
+      <path d="M76 80 c 14 -8 26 -6 34 4 c -12 8 -24 6 -34 -4z"/>
+      <path d="M74 120 c -14 -8 -26 -6 -34 4 c 12 8 24 6 34 -4z"/>
+      <path d="M76 160 c 14 -8 26 -6 34 4 c -12 8 -24 6 -34 -4z"/>
+      <path d="M74 200 c -14 -8 -26 -6 -34 4 c 12 8 24 6 34 -4z"/>
+    </svg>
+    <svg class="deco" style="bottom:150px;right:8%;width:120px" viewBox="0 0 120 220" aria-hidden="true">
+      <path d="M60 215 C 58 160, 64 110, 60 50"/>
+      <circle cx="60" cy="36" r="14"/><circle cx="60" cy="36" r="5"/>
+      <path d="M46 36 h-12 M74 36 h12 M60 22 v-12 M50 26 l-8 -8 M70 26 l8 -8 M50 46 l-8 8 M70 46 l8 8"/>
+      <path d="M61 120 c 16 -10 30 -8 38 4 c -14 10 -28 8 -38 -4z"/>
+    </svg>
+
+    <div class="wrap hero">
+      <img src="../assets/img/once-script-clay.png" alt="Once" width="753" height="482">
+      <h2>Պահեր, որ լինում են մեկ անգամ</h2>
+      <p>Առցանց հրավիրատոմսեր հարսանիքի, մկրտության և ծննդյան տոնի համար</p>
+      <div class="buttons"><a class="btn" href="#">Ընտրել ձևանմուշ</a><a class="link" href="#">Բացել դեմոն</a></div>
+    </div>
+
+    <div class="strip">
+      <div class="wrap">
+        <h3>Ընտրեք Ձեր տոնը</h3>
+        <div class="cards"><div class="card"><b>Հարսանիք</b><span>W01 · W02</span></div><div class="card"><b>Մկրտություն</b><span>B01</span></div><div class="card"><b>Ծննդյան տոն</b><span>D01</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== C. ԴԱՇՏ ==================== -->
+  <section class="v c">
+    <div class="wrap label"><span>Տարբերակ C · Վայրի ծաղիկներ</span><span class="swatches"><i style="background:#fbf6ec"></i><i style="background:#f5e3d9"></i><i style="background:#f3e2a9"></i><i style="background:#d24e3f"></i><i style="background:#3a2a24"></i></span></div>
+
+    <!-- Ցրված փոքր ծաղիկներ և հատիկներ -->
+    <svg class="deco" style="inset:0;width:100%;height:100%;stroke-width:1.4" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <g transform="translate(140 150)"><circle r="6"/><path d="M0 -8 c -8 -14 8 -14 0 0 M8 0 c 14 -8 14 8 0 0 M0 8 c 8 14 -8 14 0 0 M-8 0 c -14 8 -14 -8 0 0"/></g>
+      <g transform="translate(1040 120) scale(1.3)"><circle r="6"/><path d="M0 -8 c -8 -14 8 -14 0 0 M8 0 c 14 -8 14 8 0 0 M0 8 c 8 14 -8 14 0 0 M-8 0 c -14 8 -14 -8 0 0"/></g>
+      <g transform="translate(1080 560) scale(.9)"><circle r="6"/><path d="M0 -8 c -8 -14 8 -14 0 0 M8 0 c 14 -8 14 8 0 0 M0 8 c 8 14 -8 14 0 0 M-8 0 c -14 8 -14 -8 0 0"/></g>
+      <g transform="translate(120 600) scale(1.1)"><circle r="6"/><path d="M0 -8 c -8 -14 8 -14 0 0 M8 0 c 14 -8 14 8 0 0 M0 8 c 8 14 -8 14 0 0 M-8 0 c -14 8 -14 -8 0 0"/></g>
+      <g fill="#f3e2a9" stroke="none"><circle cx="250" cy="320" r="5"/><circle cx="960" cy="320" r="6"/><circle cx="300" cy="700" r="4"/><circle cx="880" cy="700" r="5"/><circle cx="600" cy="90" r="4"/></g>
+      <path d="M210 470 q 20 -24 40 0 q 20 24 40 0" /><path d="M900 430 q 20 -24 40 0 q 20 24 40 0"/>
+    </svg>
+
+    <div class="wrap hero">
+      <img src="../assets/img/once-script-poppy.png" alt="Once" width="753" height="482">
+      <h2>Պահեր, որ լինում են մեկ անգամ</h2>
+      <p>Առցանց հրավիրատոմսեր հարսանիքի, մկրտության և ծննդյան տոնի համար</p>
+      <div class="buttons"><a class="btn" href="#">Ընտրել ձևանմուշ</a><a class="link" href="#">Բացել դեմոն</a></div>
+    </div>
+
+    <div class="strip">
+      <svg class="wave" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 L0 22 C 150 0, 300 40, 450 20 S 750 0, 900 22 S 1100 36, 1200 18 L1200 40Z"/></svg>
+      <div class="wrap">
+        <h3>Ընտրեք Ձեր տոնը</h3>
+        <div class="cards"><div class="card"><b>Հարսանիք</b><span>W01 · W02</span></div><div class="card"><b>Մկրտություն</b><span>B01</span></div><div class="card"><b>Ծննդյան տոն</b><span>D01</span></div></div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
