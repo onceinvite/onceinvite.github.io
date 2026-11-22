@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Once — Տարբերակ D</title>
+  <!-- ՓՈՐՁՆԱԿԱՆ էջ՝ Google-ում չի երևում -->
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#d8d2c6">
+  <link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Pinyon+Script&family=Noto+Serif+Armenian:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* =========================================================
+       Once — Տարբերակ D «Սպիտակեղեն և թուղթ»
+       Գույները վերցված են իրական գրենական պիտույքներից.
+       սպիտակեղեն, մամռագույն ծրար, փոշոտ վարդագույն քարտ, սալորագույն տառեր
+       ========================================================= */
+    :root {
+      --linen: #d8d2c6;     /* սպիտակեղենի ֆոն */
+      --linen-2: #e4dfd5;   /* բաց սպիտակեղեն՝ բաժիններ */
+      --moss: #7b7a48;      /* մամռագույն՝ ծրար, մանր շեշտեր */
+      --rose: #c48a90;      /* փոշոտ վարդ՝ RSVP քարտ */
+      --blush: #e6c3c3;     /* բաց վարդ՝ հրավերի քարտ */
+      --plum: #5a1e2c;      /* սալորագույն՝ լոգո, վերնագրեր, կոճակներ */
+      --ink: #3b2a2c;       /* տեքստ */
+      --muted: #6e6160;
+
+      /* Թղթի հատիկ */
+      --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .25 0 0 0 0 .2 0 0 0 .1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      /* Սպիտակեղենի հյուսվածք՝ բարակ ուղղահայաց և հորիզոնական թելեր */
+      --weave:
+        repeating-linear-gradient(0deg, rgba(255,255,255,.07) 0 1px, transparent 1px 3px),
+        repeating-linear-gradient(90deg, rgba(60,50,40,.05) 0 1px, transparent 1px 3px);
+
+      --serif-lat: "Cormorant Garamond", Georgia, serif;
+      --serif-hy: "Noto Serif Armenian", Georgia, serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--linen); background-image: var(--grain), var(--weave); color: var(--ink);
+      font-family: var(--serif-hy); font-weight: 300; line-height: 1.75; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    h1, h2, h3, p { margin: 0; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+
+    /* Լայն տարածությամբ մանր մեծատառեր (ինչպես տպագիր հրավերներում) */
+    .caps { font-family: var(--serif-hy); font-weight: 400; text-transform: uppercase; letter-spacing: .28em; font-size: .78rem; }
+
+    /* ---------- Վերնամաս ---------- */
+    .top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 0; border-bottom: 1px solid rgba(90,30,44,.18); }
+    .top img { width: 110px; height: auto; display: block; }
+    .top nav { display: flex; gap: 28px; }
+    .top nav a, .top .order { color: var(--plum); text-decoration: none; }
+    .top .order { border: 1px solid var(--plum); padding: 8px 16px; }
+
+    /* ---------- 1. Գլխավոր բաժին ---------- */
+    .hero { display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; align-items: center; padding: 64px 0 90px; }
+    .hero .caps { color: var(--moss); margin-bottom: 18px; display: block; }
+    .hero h1 { font-family: var(--serif-hy); font-weight: 400; color: var(--plum); font-size: clamp(2rem, 4.6vw, 3.4rem); line-height: 1.2; margin-bottom: 20px; }
+    .hero h1 em { font-style: normal; color: var(--moss); }
+    .hero p { color: var(--muted); max-width: 440px; margin-bottom: 34px; }
+    .btns { display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; }
+    .btn { display: inline-block; padding: 14px 30px; background: var(--plum); color: #f3ece6; text-decoration: none; }
+    .btn:hover { background: #431521; }
+    .text-link { color: var(--plum); text-decoration: none; border-bottom: 1px solid var(--plum); padding-bottom: 3px; }
+
+    /* Գրենական պիտույքների կոմպոզիցիա (ամբողջը CSS-ով) */
+    .flatlay { position: relative; height: 560px; }
+    .paper { position: absolute; background-image: var(--grain); box-shadow: 0 1px 1px rgba(0,0,0,.08), 0 14px 26px -16px rgba(50,35,30,.45); }
+
+    /* Բաց վարդագույն հրավերի քարտ */
+    .invite { left: 0; top: 30px; width: 44%; height: 470px; background-color: var(--blush); padding: 46px 22px; text-align: center; color: var(--plum); transform: rotate(-2deg); z-index: 2; }
+    .invite .caps { font-size: .62rem; letter-spacing: .3em; color: var(--plum); opacity: .85; }
+    .invite .names { font-size: 1.55rem; line-height: 1.25; margin: 26px 0 6px; }
+    .invite .amp { display: block; font-family: "Pinyon Script", cursive; font-size: 2.6rem; line-height: 1; margin: 6px 0; }
+    .invite .line { width: 30px; height: 1px; background: var(--plum); margin: 22px auto; opacity: .6; }
+    .invite .date { font-family: var(--serif-lat); letter-spacing: .3em; font-size: 1rem; }
+
+    /* Մամռագույն ծրար՝ ներսում իրական լուսանկար */
+    .envelope { right: 0; top: 0; width: 60%; height: 380px; background-color: var(--moss); z-index: 1; }
+    .envelope .liner { position: absolute; left: 6%; right: 6%; top: 0; height: 72%; background: url('../templates/wedding/w01/hero.jpg') center 30% / cover;
+      clip-path: polygon(0 18%, 50% 92%, 100% 18%, 100% 0, 0 0); filter: saturate(.85) sepia(.12); }
+    .envelope .flap { position: absolute; inset: 0; background-color: var(--moss); background-image: var(--grain);
+      clip-path: polygon(0 100%, 0 38%, 50% 78%, 100% 38%, 100% 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,.1); }
+    .envelope .fold { position: absolute; inset: 0; background: linear-gradient(to top right, transparent 49.6%, rgba(0,0,0,.08) 50%, transparent 50.4%),
+      linear-gradient(to top left, transparent 49.6%, rgba(0,0,0,.08) 50%, transparent 50.4%); clip-path: polygon(0 100%, 0 38%, 50% 78%, 100% 38%, 100% 100%); }
+
+    /* Փոշոտ վարդագույն ձվաձև RSVP քարտ */
+    .rsvp { right: 8%; bottom: 0; width: 46%; aspect-ratio: 1.45; border-radius: 50%; background-color: var(--rose); display: grid; place-content: center; text-align: center; color: var(--plum); z-index: 3; }
+    .rsvp b { font-family: var(--serif-lat); font-weight: 500; letter-spacing: .3em; font-size: 1.7rem; padding-left: .3em; }
+    .rsvp i { display: block; width: 30px; height: 1px; background: var(--plum); margin: 10px auto 0; }
+
+    /* ---------- 2. Տոներ ---------- */
+    .band { background-color: var(--linen-2); background-image: var(--grain); border-top: 1px solid rgba(90,30,44,.12); border-bottom: 1px solid rgba(90,30,44,.12); }
+    .occasions { display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; }
+    .occasions a { padding: 40px 12px; color: var(--plum); text-decoration: none; border-right: 1px solid rgba(90,30,44,.12); }
+    .occasions a:last-child { border-right: 0; }
+    .occasions b { display: block; font-weight: 400; font-size: clamp(1.3rem, 2.6vw, 1.9rem); }
+    .occasions span { color: var(--moss); }
+
+    /* ---------- 3. Ձևանմուշներ ---------- */
+    .section { padding: 96px 0; }
+    .head { text-align: center; margin-bottom: 44px; }
+    .head .caps { color: var(--moss); display: block; margin-bottom: 12px; }
+    .head h2 { font-weight: 400; color: var(--plum); font-size: clamp(1.7rem, 3.6vw, 2.5rem); }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .card { text-decoration: none; color: var(--ink); }
+    .card .sheet { position: relative; aspect-ratio: 3/4; background-color: #f1ece4; background-image: var(--grain); box-shadow: 0 14px 24px -18px rgba(50,35,30,.5); display: grid; place-items: center; transition: transform .35s; }
+    .card:hover .sheet { transform: translateY(-4px) rotate(-.6deg); }
+    .card .photo { position: absolute; inset: 14px; background: url('../templates/wedding/w01/hero.jpg') center / cover; filter: saturate(.85); }
+    .card .soon { font-family: var(--serif-lat); font-style: italic; font-size: 1.6rem; color: var(--rose); }
+    .card .caps { display: block; margin-top: 16px; color: var(--moss); }
+    .card h3 { font-weight: 400; font-size: 1.15rem; color: var(--plum); }
+
+    /* ---------- Մեջբերում ---------- */
+    .quote { text-align: center; padding: 100px 0; }
+    .quote p { max-width: 720px; margin: 0 auto; color: var(--plum); font-size: clamp(1.3rem, 3vw, 1.9rem); line-height: 1.6; }
+    .quote img { width: 130px; height: auto; margin-top: 22px; }
+
+    /* ---------- Ներքնամաս ---------- */
+    footer { border-top: 1px solid rgba(90,30,44,.18); padding: 36px 0; text-align: center; color: var(--muted); }
+    footer .caps { color: var(--moss); }
+
+    /* ---------- Հեռախոս ---------- */
+    @media (max-width: 860px) {
+      .top nav { display: none; }
+      .hero { grid-template-columns: 1fr; gap: 36px; padding-top: 40px; text-align: center; }
+      .hero p { margin-left: auto; margin-right: auto; }
+      .btns { justify-content: center; }
+      .flatlay { height: 470px; max-width: 420px; width: 100%; margin: 0 auto; }
+      .invite { height: 380px; padding: 34px 12px; }
+      .invite .names { font-size: 1.2rem; margin-top: 18px; }
+      .invite .amp { font-size: 2rem; }
+      .envelope { height: 300px; }
+      .rsvp b { font-size: 1.2rem; }
+      .occasions { grid-template-columns: 1fr; }
+      .occasions a { border-right: 0; border-bottom: 1px solid rgba(90,30,44,.12); padding: 24px 12px; }
+      .cards { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .section { padding: 64px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    <header class="top">
+      <a href="#"><img src="../assets/img/once-script-plum.png" alt="Once" width="753" height="482"></a>
+      <nav class="caps"><a href="#catalog">Ձևանմուշներ</a><a href="#">Ինչպես է աշխատում</a><a href="#">Հարցեր</a></nav>
+      <a class="order caps" href="#">Պատվիրել</a>
+    </header>
+
+    <!-- ============ 1. ԳԼԽԱՎՈՐ ============ -->
+    <section class="hero">
+      <div>
+        <span class="caps">Առցանց հրավիրատոմսեր · Երևան</span>
+        <h1>Պահեր, որ լինում են <em>մեկ</em> անգամ</h1>
+        <p>Հրավեր, որ ուղարկվում է մեկ հղումով, բայց զգացվում է ինչպես թղթե նամակ։ Հարսանիք, մկրտություն, ծննդյան տոն։</p>
+        <div class="btns">
+          <a class="btn caps" href="#catalog">Դիտել ձևանմուշները</a>
+          <a class="text-link caps" href="../templates/wedding/w01/" target="_blank" rel="noopener">Բացել դեմոն</a>
+        </div>
+      </div>
+
+      <!-- Թղթե հրավեր, ծրար և RSVP քարտ -->
+      <div class="flatlay" aria-hidden="true">
+        <div class="paper invite">
+          <p class="caps">Ընտանիքների հետ միասին</p>
+          <p class="names">Եվա<span class="amp">&amp;</span>Արամ</p>
+          <p class="caps">Հրավիրում են Ձեզ</p>
+          <div class="line"></div>
+          <p class="date">19 · 06 · 2027</p>
+        </div>
+        <div class="paper envelope"><div class="liner"></div><div class="flap"></div><div class="fold"></div></div>
+        <div class="paper rsvp"><b>RSVP</b><i></i></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ 2. ՏՈՆԵՐ ============ -->
+  <div class="band">
+    <div class="wrap occasions">
+      <a href="#catalog"><b>Հարսանիք</b><span class="caps">W01 · W02</span></a>
+      <a href="#catalog"><b>Մկրտություն</b><span class="caps">B01</span></a>
+      <a href="#catalog"><b>Ծննդյան տոն</b><span class="caps">D01</span></a>
+    </div>
+  </div>
+
+  <!-- ============ 3. ՁԵՎԱՆՄՈՒՇՆԵՐ ============ -->
+  <section id="catalog" class="section">
+    <div class="wrap">
+      <div class="head"><span class="caps">Կատալոգ</span><h2>Ընտրեք Ձեր ոճը</h2></div>
+      <div class="cards">
+        <a class="card" href="../templates/wedding/w01/" target="_blank" rel="noopener"><div class="sheet"><div class="photo"></div></div><span class="caps">W01 · Հարսանիք</span><h3>Դասական սև-սպիտակ</h3></a>
+        <div class="card"><div class="sheet"><span class="soon">շուտով</span></div><span class="caps">W02 · Հարսանիք</span><h3>Նոր ոճ</h3></div>
+        <div class="card"><div class="sheet"><span class="soon">շուտով</span></div><span class="caps">B01 · Մկրտություն</span><h3>Նոր ոճ</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. ՄՏՔԻՐ ============ -->
+  <section class="band quote">
+    <div class="wrap">
+      <p>Ամեն կարևոր պահ լինում է միայն մեկ անգամ։<br>Մենք օգնում ենք այն կիսել սիրով։</p>
+      <img src="../assets/img/once-script-plum.png" alt="Once" width="753" height="482">
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <p class="caps">Once · Առցանց հրավիրատոմսեր</p>
+    <p>© 2026 Once</p>
+  </footer>
+
+</body>
+</html>
