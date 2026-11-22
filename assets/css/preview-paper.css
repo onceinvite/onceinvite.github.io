@@ -1,0 +1,131 @@
+/* =========================================================
+   Once — ՓՈՐՁՆԱԿԱՆ ոճ «Դրոշմված թուղթ»
+   Մոխրավուն-բեժ թուղթ, մեծ դրոշմված տառեր, կարմիր ձեռագիր։
+   Միանում է main.css-ից հետո և փոխում է միայն գույներն ու գլխավոր բաժինը։
+   ========================================================= */
+
+:root {
+  --cream: #e6e0d7;        /* հիմնական ֆոն՝ մոխրավուն-բեժ թուղթ */
+  --paper: #f1ede7;        /* բաց թուղթ՝ քարտեր */
+  --sand: #d8cfc3;         /* մուգ թուղթ՝ բաժիններ */
+  --olive: #4a3c33;        /* մուգ շագանակագույն՝ վերնամաս, ներքնամաս */
+  --olive-dark: #3a2f28;
+  --accent: #a3262a;       /* գինեկարմիր՝ լոգո, կոճակներ, ձեռագիր գծեր */
+  --accent-text: #a3262a;
+  --accent-dark: #7a1c20;
+  --ink: #2f2622;
+  --muted: #6b6058;
+  --line: #cbc1b4;
+
+  /* Թղթի հատիկավոր ֆակտուրա (SVG աղմուկ) */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .3 0 0 0 0 .25 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+body { background: var(--cream) var(--grain); }
+.section--tint, .occasions { background: var(--sand) var(--grain); }
+
+/* Վերնագրերը՝ մուգ շագանակագույն */
+.hero__title, .section__title, .feature h3 { color: var(--ink); }
+.occasions a { color: var(--olive); }
+
+/* Կոճակի hover՝ ավելի մուգ կարմիր */
+.btn:hover, .btn:focus-visible { background: var(--accent-dark); border-color: var(--accent-dark); }
+
+/* Ձեռագիր գիծ՝ կարմիր */
+.scribble {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 20' preserveAspectRatio='none'%3E%3Cpath d='M4 14 C 60 6, 120 4, 180 8 S 270 13, 296 7' fill='none' stroke='%23a3262a' stroke-width='4.5' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+/* ---------- Վերնամաս՝ բաց թուղթ, ձեռագիր լոգո ---------- */
+.announce { background: var(--olive-dark); }
+.site-header {
+  background: rgba(230, 224, 215, .94) var(--grain);
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.site-header__inner { padding-top: 8px; padding-bottom: 8px; gap: 0; }
+.logo__img { display: block; width: 120px; height: auto; }
+.nav a { color: var(--ink); }
+.nav__accent { color: var(--accent) !important; }
+
+/* ---------- 1. Դրոշմված թուղթ (գլխավոր բաժին) ---------- */
+.paper-hero {
+  position: relative;
+  min-height: 86vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 72px 0 88px;
+  overflow: hidden;
+  background: #d3cabe var(--grain);
+  text-align: center;
+}
+
+/* Մեծ դրոշմված տառեր՝ նույն գույնի, լույս ու ստվերով */
+.emboss {
+  position: absolute;
+  inset: -4% -6%;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  align-items: center;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(7rem, 24vw, 22rem);
+  line-height: .9;
+  letter-spacing: .12em;
+  color: #d3cabe;
+  text-shadow:
+    -1.5px -1.5px 1.5px rgba(255, 255, 255, .45),
+    1.5px 1.5px 2.5px rgba(80, 64, 50, .2);
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+}
+.emboss span:nth-child(even) { margin-left: -.6em; }
+
+/* Թեք մեղմ ստվեր, ինչպես լուսանկարում */
+.paper-hero__shadow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, transparent 62%, rgba(40, 30, 24, .1) 62.2%, rgba(40, 30, 24, .2) 100%);
+  pointer-events: none;
+}
+
+.paper-hero__content { position: relative; z-index: 1; }
+.paper-hero__logo {
+  display: block;
+  width: min(560px, 82vw);
+  height: auto;
+  margin: 0 auto 8px;
+  transform: rotate(-4deg);
+  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, .35));
+}
+.paper-hero__title {
+  font-family: var(--font-main);
+  font-size: clamp(1.4rem, 3.2vw, 2.1rem);
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.paper-hero__text { color: var(--muted); margin-bottom: 30px; }
+.paper-hero .hero__buttons { justify-content: center; }
+
+/* ---------- Մտքի և պատվերի բաժիններ ---------- */
+.quote { background: var(--olive) var(--grain); }
+.quote__mark { color: #e8a9a0; }
+.section--dark { background: var(--accent-dark) var(--grain); }
+.section--dark .eyebrow { color: #f1c6bf; }
+.btn--light { color: var(--accent-dark); }
+
+/* ---------- Ներքնամաս ---------- */
+.site-footer { background: var(--olive-dark) var(--grain); }
+.site-footer .logo__img { width: 110px; }
+
+/* ---------- Հեռախոս ---------- */
+@media (max-width: 600px) {
+  .logo__img { width: 100px; }
+  .paper-hero { min-height: 78vh; padding: 56px 0 64px; }
+  .emboss { font-size: 36vw; inset: 0 -20%; }
+}
