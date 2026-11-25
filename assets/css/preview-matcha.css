@@ -1,0 +1,137 @@
+/* =========================================================
+   Once — ՓՈՐՁՆԱԿԱՆ ոճ «Մատչա և ցիտրուս»
+   Pearl Oatmilk #F9F6F1 · Golden Matcha #B7AD76
+   Citrus Spice #D07E42 · Forest Depth #181B17
+   Միանում է main.css-ից հետո։
+   Կարևոր․ ցիտրուսի և մատչայի վրա տեքստը մուգ է (Forest),
+   քանի որ սպիտակ տեքստը այդ գույների վրա վատ է կարդացվում։
+   ========================================================= */
+
+:root {
+  --cream: #f9f6f1;        /* Pearl Oatmilk՝ հիմնական ֆոն */
+  --paper: #fdfbf8;        /* քարտեր */
+  --matcha: #b7ad76;       /* Golden Matcha՝ ժապավեններ */
+  --sand: #ebe7d6;         /* մատչայի շատ բաց երանգ՝ բաժիններ */
+  --olive: #181b17;
+  --olive-dark: #181b17;
+  --accent: #d07e42;       /* Citrus Spice՝ կոճակներ, ձեռագիր գիծ */
+  --accent-text: #a5571f;  /* մուգ ցիտրուս՝ փոքր տեքստերի համար (կարդացվում է բաց ֆոնին) */
+  --accent-dark: #b9692f;  /* կոճակի hover */
+  --ink: #181b17;          /* Forest Depth՝ տեքստ */
+  --muted: #5d6055;
+  --line: #e2dccb;
+}
+
+body { background: var(--cream); color: var(--ink); }
+.section--tint, .occasions { background: var(--sand); }
+
+.hero__title, .section__title, .feature h3 { color: var(--ink); }
+.occasions a { color: var(--ink); }
+.occasions a:hover { color: var(--accent-text); }
+.seed { background: var(--accent); }
+
+/* Կոճակներ՝ ցիտրուս ֆոն, մուգ տեքստ */
+.btn { color: var(--ink); }
+.btn:hover, .btn:focus-visible { background: var(--accent-dark); border-color: var(--accent-dark); color: var(--ink); }
+.btn--play, .btn--play:hover, .btn--play:focus-visible { color: var(--ink); }
+.btn--outline { border-color: var(--ink); color: var(--ink); }
+.btn--outline:hover, .btn--outline:focus-visible { background: var(--ink); color: var(--cream); }
+
+.scribble {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 20' preserveAspectRatio='none'%3E%3Cpath d='M4 14 C 60 6, 120 4, 180 8 S 270 13, 296 7' fill='none' stroke='%23d07e42' stroke-width='4.5' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+.filter.is-active { background: var(--ink); border-color: var(--ink); color: var(--cream); }
+.card__badge { background: var(--matcha); color: var(--ink); }
+.card__img--empty { background: var(--paper); border-color: var(--line); }
+.card__soon, .card__code { color: var(--accent-text); }
+.eyebrow { color: var(--accent-text); }
+
+/* ---------- Վերնամաս ---------- */
+.announce { background: var(--matcha); color: var(--ink); }
+.site-header {
+  background: rgba(249, 246, 241, .94);
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.site-header__inner { padding-top: 8px; padding-bottom: 8px; gap: 0; }
+.logo__img { display: block; width: 120px; height: auto; }
+.nav a { color: var(--ink); }
+.nav__accent { color: var(--accent-text) !important; }
+
+/* ---------- 1. Գլխավոր բաժին ---------- */
+.paper-hero {
+  position: relative;
+  min-height: 86vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 72px 0 88px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(183, 173, 118, .28), transparent 42%),
+    radial-gradient(circle at 88% 82%, rgba(208, 126, 66, .16), transparent 45%),
+    var(--cream);
+  text-align: center;
+}
+.emboss {
+  position: absolute;
+  inset: -4% -6%;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  align-items: center;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(7rem, 24vw, 22rem);
+  line-height: .9;
+  letter-spacing: .12em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(24, 27, 23, .08);
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+}
+.emboss span:nth-child(even) { margin-left: -.6em; }
+.paper-hero__shadow { display: none; }
+.paper-hero__content { position: relative; z-index: 1; }
+.paper-hero__logo {
+  display: block;
+  width: min(560px, 82vw);
+  height: auto;
+  margin: 0 auto 8px;
+  transform: rotate(-4deg);
+}
+.paper-hero__title {
+  font-family: var(--font-main);
+  font-size: clamp(1.4rem, 3.2vw, 2.1rem);
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.paper-hero__text { color: var(--muted); margin-bottom: 30px; }
+.paper-hero .hero__buttons { justify-content: center; }
+
+/* ---------- Մտքի բաժին՝ մատչա ---------- */
+.quote { background: var(--matcha); color: var(--ink); }
+.quote__mark, .quote__sign { color: var(--ink); }
+
+/* ---------- Պատվեր՝ մուգ անտառային ---------- */
+.section--dark { background: var(--ink); color: var(--cream); }
+.section--dark .section__title { color: var(--cream); }
+.section--dark .eyebrow { color: var(--matcha); }
+.order > p { color: #d9d5c8; }
+.btn--light { background: var(--accent); border-color: var(--accent); color: var(--ink); }
+.btn--light:hover, .btn--light:focus-visible { background: var(--cream); border-color: var(--cream); color: var(--ink); }
+.btn--ghost { border-color: rgba(249, 246, 241, .6); color: var(--cream); }
+.btn--ghost:hover, .btn--ghost:focus-visible { background: var(--cream); border-color: var(--cream); color: var(--ink); }
+
+/* ---------- Ներքնամաս ---------- */
+.site-footer { background: var(--sand); color: var(--muted); }
+.site-footer .logo__img { width: 110px; }
+
+/* ---------- Հեռախոս ---------- */
+@media (max-width: 600px) {
+  .logo__img { width: 100px; }
+  .paper-hero { min-height: 78vh; padding: 56px 0 64px; }
+  .emboss { font-size: 36vw; inset: 0 -20%; }
+}
